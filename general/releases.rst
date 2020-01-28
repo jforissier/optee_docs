@@ -61,7 +61,7 @@ tl;dr
 
     * - 1w
       - Create release candidate tag in optee_* + build.git
-      - git tag -a 3.x.y-rc1 -m "3.x.y-rc1"
+      - git tag -a -s 3.x.y-rc1 -m "3.x.y-rc1"
 
     * - 1w
       - Let maintainers know about the release candidate tag
@@ -81,7 +81,7 @@ tl;dr
 
     * - Release day
       - Create release tag in optee_* + build.git
-      - git tag -a 3.x.y -m "3.x.y"
+      - git tag -a -s 3.x.y -m "3.x.y"
 
     * - Release day
       - Create release branch in :ref:`manifest`
@@ -126,7 +126,7 @@ Long version
        .. code-block:: bash
 
             $ export VER=3.x.y-rc1
-            $ for d in optee* build; do ( cd $d; git tag -a $VER -m $VER ); done
+            $ for d in optee* build; do ( cd $d; git tag -a -s $VER -m $VER ); done
             $ for d in optee* build; do ( cd $d; git push origin $VER ); done
 
 
@@ -144,7 +144,7 @@ Long version
     8. Collect all tags (``Tested-By`` etc) from maintainers and use those in
        the commit message, for an example see this `commit example`_.
 
-    9. Create a release tag (annotated tag, i.e., ``git tag -a 3.x.y -m
+    9. Create a release tag (annotated tag, i.e., ``git tag -a -s 3.x.y -m
        "3.x.y"``) in the following gits ``optee_*`` and ``build.git``.
 
        .. hint::
@@ -170,7 +170,7 @@ Long version
             $ git commit -a -m "OP-TEE $VER stable"
             $ git remote add upstream git@github.com:OP-TEE/manifest
             $ git push upstream
-            $ git tag -s -a $VER -m $VER
+            $ git tag -a -s $VER -m $VER
             $ git push upstream tag $VER
 
     12. Send a last email to maintainers and other stakeholders telling that the
